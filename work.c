@@ -55,7 +55,7 @@ void ADC_Convertation_complete()
     /* convert adc to mA x100 and copy it to modbus map */
     for(i=0;i<LAST_ADC_INPUT-FIRST_ADC_INPUT+1;i++)
     {
-        *(((USHORT*)(&mModbusMap))+i)=(USHORT)(ADC_TO_mA((*(adc_data+i)))*100);   
+        *(((USHORT*)(&mModbusMap))+LAST_ADC_INPUT-i)=(USHORT)(ADC_TO_mA((*(adc_data+i)))*100);   
     }
 
 }
